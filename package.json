@@ -2,16 +2,25 @@
   "name": "brooking",
   "version": "0.0.1",
   "description": "Brooklyn Fitboxing automated booking system",
-  "main": "main.js",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/daniseijo/brooking"
+  },
   "author": "Daniel Seijo <daniseijo.dev@gmail.com>",
+  "contributors": [
+    "Barbara Diaz <barbarad91@gmail.com>"
+  ],
   "license": "MIT",
   "scripts": {
-    "start": "node ./build/index.js",
+    "prepare": "husky install",
+    "start": "node ./dist/index.js",
     "dev": "nodemon",
     "build": "tsc",
     "typecheck": "tsc --noEmit",
-    "lint": "eslint \"src/**/*.ts\"",
-    "format": ""
+    "lint": "eslint --fix \"src/**/*.ts\"",
+    "format": "prettier --write \"src/**/*.ts\"",
+    "pre-commit": "lint-staged"
   },
   "dependencies": {
     "axios": "^0.26.1",
@@ -29,9 +38,17 @@
     "@typescript-eslint/parser": "^5.19.0",
     "eslint": "^8.13.0",
     "eslint-config-prettier": "^8.5.0",
+    "husky": "^7.0.4",
+    "lint-staged": "^12.3.8",
     "nodemon": "^2.0.15",
     "prettier": "^2.6.2",
     "ts-node": "^10.7.0",
     "typescript": "^4.6.3"
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ]
   }
 }
