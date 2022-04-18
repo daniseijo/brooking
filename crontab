@@ -1,0 +1,2 @@
+# m   h   dom mon dow command
+59  20  *   *   1,4 node ./dist/index.js >> /home/pi/log/brooking.log
